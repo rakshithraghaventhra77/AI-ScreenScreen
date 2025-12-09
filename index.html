@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RakScreenAI</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+
+  <div class="main-container">
+    
+    <!-- HEADER -->
+    <header class="app-header">
+      <div class="logo-area">
+        <h1>RakScreenAI</h1>
+        <div class="online-indicator"></div>
+      </div>
+      <p class="subtitle">Screen Intelligence Assistant</p>
+    </header>
+
+    <div class="content-scroll">
+      
+      <!-- SECTION 1: VISUAL CONTEXT -->
+      <div class="panel">
+        <div class="panel-header">
+          <span class="icon">◉</span> Screen Context
+        </div>
+        
+        <!-- Screen Capture -->
+        <div class="preview-frame" id="screen-container">
+          <div id="loading-spinner" class="spinner"></div>
+          <img id="screen-image" class="hidden" alt="Screen Capture">
+          <div style="position:absolute; bottom:5px; font-size:9px; color:#555; text-align:center; width:100%;">* Requires Extension Context</div>
+        </div>
+
+        <!-- Optional Upload -->
+        <div class="upload-area">
+          <div class="upload-header">
+            <span class="sub-label">Additional Reference (Optional)</span>
+          </div>
+          
+          <div class="upload-row">
+            <label for="file-upload" class="custom-file-upload">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="17 8 12 3 7 8"></polyline>
+                <line x1="12" y1="3" x2="12" y2="15"></line>
+              </svg>
+              Select Image
+            </label>
+            <span id="file-name">No file selected</span>
+            <input type="file" id="file-upload" accept="image/*">
+          </div>
+
+          <img id="upload-preview" class="hidden upload-thumb" alt="Reference">
+        </div>
+      </div>
+
+      <!-- SECTION 2: PROMPT -->
+      <div class="panel input-panel">
+        <label for="user-input" class="panel-header">
+          <span class="icon">✎</span> Your Question
+        </label>
+        <textarea id="user-input" placeholder="What specific details should I analyze on this screen?"></textarea>
+      </div>
+
+      <!-- SECTION 3: ACTION -->
+      <button id="ask-btn" class="glow-button">
+        <span class="btn-text">Analyze Screen</span>
+        <div class="btn-glow"></div>
+      </button>
+
+      <!-- SECTION 4: OUTPUT -->
+      <div id="result-area" class="result-container hidden">
+        <div class="result-header">
+          <span>AI Analysis</span>
+          <div class="pulse-dot"></div>
+        </div>
+        <div class="result-content">
+          <p id="result-text"></p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      RakScreenAI — Powered by On-Device Intelligence
+    </footer>
+
+  </div>
+
+  <script src="popup.js"></script>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RakScreenAI</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="main-container">
+    
+    <!-- HEADER -->
+    <header class="app-header">
+      <div class="logo-area">
+        <div class="logo-mark"></div>
+        <div class="logo-copy">
+          <p class="eyebrow">Capture · Understand · Answer</p>
+        <h1>RakScreenAI</h1>
+        </div>
+        <div class="pill accent">Gemini Flash</div>
+      </div>
+      <p class="subtitle">Visual QA copilot for whatever is on your screen.</p>
+      <div class="status-row">
+        <span class="pill success">Live capture ready</span>
+        <span class="pill subtle">Secure session</span>
+        <span class="pill subtle">v1.0</span>
+      </div>
+    </header>
+
+    <div class="content-scroll">
+      
+      <!-- SECTION 1: VISUAL CONTEXT -->
+      <div class="panel">
+        <div class="panel-header">
+          <span class="icon">◉</span> Screen Context
+          <span id="progress-hint" class="helper-text">Capturing current tab…</span>
+        </div>
+        
+        <!-- Screen Capture -->
+        <div class="preview-frame" id="screen-container">
+          <div id="loading-spinner" class="spinner"></div>
+          <img id="screen-image" class="hidden" alt="Screen Capture">
+          <div class="preview-overlay">
+            <div class="chip-row">
+              <span class="chip muted">Auto-captured</span>
+              <span class="chip muted">PNG</span>
+            </div>
+            <p class="preview-hint">Answer grounded in exactly what you see on this tab.</p>
+          </div>
+        </div>
+
+        <!-- Optional Upload -->
+        <div class="upload-area">
+          <div class="upload-header">
+            <span class="sub-label">Add another reference (optional)</span>
+            <span class="helper-text">Great for mockups or comparison shots.</span>
+          </div>
+          
+          <div class="upload-row">
+            <label for="file-upload" class="custom-file-upload">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="17 8 12 3 7 8"></polyline>
+                <line x1="12" y1="3" x2="12" y2="15"></line>
+              </svg>
+              Select Image
+            </label>
+            <span id="file-name">No file selected</span>
+            <input type="file" id="file-upload" accept="image/*">
+          </div>
+
+          <img id="upload-preview" class="hidden upload-thumb" alt="Reference">
+        </div>
+      </div>
+
+      <!-- SECTION 2: PROMPT -->
+      <div class="panel input-panel">
+        <div class="input-header">
+        <label for="user-input" class="panel-header">
+            <span class="icon">✎</span> Your question
+        </label>
+          <div class="chip-row">
+            <button class="chip quick-prompt" data-prompt="Think and precisely answer to the question present in the screen">Answer</button>
+          </div>
+        </div>
+        <textarea id="user-input" placeholder="Ask for key actions, issues, or exact details to inspect."></textarea>
+      </div>
+
+      <!-- SECTION 3: ACTION -->
+      <button id="ask-btn" class="glow-button">
+        <span class="btn-text">Analyze Screen</span>
+        <div class="btn-glow"></div>
+      </button>
+
+      <!-- SECTION 4: OUTPUT -->
+      <div id="result-area" class="result-container hidden">
+        <div class="result-header">
+          <div>
+            <span class="result-title">AI Analysis</span>
+            <div class="result-meta">
+              <span class="pulse-dot"></span>
+              <span>Latest response</span>
+            </div>
+          </div>
+          <div class="result-actions">
+            <button id="copy-btn" class="icon-btn">Copy</button>
+          </div>
+        </div>
+        <div class="result-content">
+          <p id="result-text" class="placeholder">Ask a question to see the analysis here.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      RakScreenAI — Powered by on-device preparation & Gemini Flash
+    </footer>
+
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

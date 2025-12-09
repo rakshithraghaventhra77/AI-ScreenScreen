@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "RakScreenAI",
+  "version": "1.0",
+  "description": "AI assistant that analyzes your screen content using Gemini Flash.",
+
+  "permissions": [
+    "activeTab",
+    "tabs"
+  ],
+
+  "host_permissions": [
+    "<all_urls>"
+  ],
+
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "RakScreenAI"
+  }
+}
